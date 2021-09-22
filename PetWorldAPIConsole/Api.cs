@@ -36,7 +36,7 @@ namespace PetWorldAPIConsole
                 foreach(JToken jo in jsonArray) { petList.ImportPet(jo); }
                 Console.WriteLine(String.Format("Successfully parsed {0} pets from retrieved list.", petList.pets.Count));
 
-                Console.WriteLine("First 50 pets as retrieved by API");
+                Console.WriteLine("First 5 pets as retrieved by API");
                 for (int i=0; i<5; i++) { Pet p = petList.pets[i]; Console.WriteLine(String.Format("Pet ID: {0}, Name: {1}, Category: {2}", p.id, p.name, p.category.name)); }
 
                 Pets orderedPetList = new Pets(petList.pets.OrderBy(f => f.category.name).ThenByDescending(g => g.name).ToList<Pet>());
